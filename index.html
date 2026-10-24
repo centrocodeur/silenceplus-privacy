@@ -43,7 +43,6 @@
             flex-direction: column;
         }
 
-        /* Subtle ambient lighting */
         .ambient-glow {
             position: fixed;
             top: 0;
@@ -56,7 +55,6 @@
             z-index: 0;
         }
 
-        /* Container */
         .container {
             width: 100%;
             max-width: 920px;
@@ -66,7 +64,6 @@
             z-index: 1;
         }
 
-        /* Header / Navbar */
         header {
             padding: 32px 0 20px;
             border-bottom: 1px solid var(--border);
@@ -140,6 +137,7 @@
             gap: 12px;
         }
 
+        .lang-toggle,
         .btn-contact {
             font-size: 0.85rem;
             font-weight: 600;
@@ -152,16 +150,18 @@
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
+            cursor: pointer;
         }
 
+        .lang-toggle:hover,
         .btn-contact:hover {
             background: rgba(255, 255, 255, 0.12);
             border-color: var(--border-hover);
             transform: translateY(-1px);
         }
 
-        /* Hero Banner */
         .hero {
             padding: 56px 0 36px;
             text-align: center;
@@ -201,7 +201,6 @@
             gap: 6px;
         }
 
-        /* Main Content Cards */
         main {
             padding-bottom: 72px;
         }
@@ -287,7 +286,6 @@
             margin-bottom: 0;
         }
 
-        /* Subsection blocks (cards inside cards) */
         .subsection {
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -343,7 +341,6 @@
             margin-bottom: 8px;
         }
 
-        /* Contact Section Specific */
         .contact-box {
             background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
             border: 1px solid rgba(25, 118, 210, 0.35);
@@ -391,7 +388,6 @@
             box-shadow: 0 6px 20px rgba(25, 118, 210, 0.6);
         }
 
-        /* Footer */
         footer {
             margin-top: auto;
             border-top: 1px solid var(--border);
@@ -437,7 +433,6 @@
 <body>
     <div class="ambient-glow"></div>
 
-    <!-- Header / Navbar -->
     <header>
         <div class="container nav-content">
             <a href="#" class="brand">
@@ -448,33 +443,21 @@
                 </div>
                 <div class="brand-info">
                     <h1>Silenceplus <span class="brand-badge">PRO</span></h1>
-                    <span class="brand-tagline">ARCEP call blocker & private number protection</span>
+                    <span class="brand-tagline" data-i18n="brandTagline">ARCEP call blocker & private number protection</span>
                 </div>
             </a>
             <div class="header-actions">
-                <a href="mailto:dev3d@outlook.fr" class="btn-contact">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="16" x="2" y="4" rx="2"/>
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                    </svg>
-                    Contact
-                </a>
+                <button class="lang-toggle" id="langToggle" type="button" aria-label="Passer en français">FR / EN</button>
+                <a href="mailto:dev3d@outlook.fr" class="btn-contact" data-i18n="contact">Contact</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Header -->
     <section class="hero">
         <div class="container">
-            <div class="privacy-pill">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="m9 12 2 2 4-4"/>
-                </svg>
-                100% Local Execution • No Data Collection
-            </div>
-            <h2>Privacy Policy</h2>
-            <div class="last-update">
+            <div class="privacy-pill" data-i18n="privacyPill">100% Local Execution • No Data Collection</div>
+            <h2 data-i18n="privacyTitle">Privacy Policy</h2>
+            <div class="last-update" data-i18n="lastUpdated">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
@@ -484,138 +467,126 @@
         </div>
     </section>
 
-    <!-- Main Content -->
     <main>
         <div class="container">
             <div class="intro-card">
-                <p>This privacy policy describes how the mobile application <strong>Silenceplus</strong> processes data relating to its users. The application is designed around the principle of <strong>maximum privacy</strong>, using local-only processing without any user account, remote database, or advertising tracking.</p>
+                <p data-i18n="introText">This privacy policy describes how the mobile application <strong>Silenceplus</strong> processes data relating to its users. The application is designed around the principle of <strong>100% local execution</strong>. It does not require an account and does not transmit personal data to remote servers.</p>
             </div>
 
-            <!-- Section 1 -->
             <article class="policy-section">
                 <div class="section-header">
                     <div class="section-num">1</div>
-                    <h3>General philosophy: Privacy by design</h3>
+                    <h3 data-i18n="section1Title">General philosophy: Privacy by design</h3>
                 </div>
                 <div class="section-body">
-                    <p>Silenceplus is designed on a principle of <strong>100% local execution</strong>. The application does not require user account creation and operates without transmitting personal data to any external server. Its primary purpose is to filter unwanted calls and block nuisance calls directly on the user’s device.</p>
-                    <p>By default, the app does not collect names, phone numbers, browsing data, device identifiers, locations, or contact lists. This approach minimizes the data footprint and reduces the risk of misuse, loss, or unauthorized sharing.</p>
+                    <p data-i18n="section1Text1">Silenceplus is designed on a principle of <strong>100% local execution</strong>. The application does not require user account creation and operates without transmitting personal data to external services.</p>
+                    <p data-i18n="section1Text2">By default, the app does not collect names, phone numbers, browsing data, device identifiers, locations, or contact lists. This approach minimizes the data footprint and reduces risks for users.</p>
                 </div>
             </article>
 
-            <!-- Section 2 -->
             <article class="policy-section">
                 <div class="section-header">
                     <div class="section-num">2</div>
-                    <h3>Data processed and permissions used</h3>
+                    <h3 data-i18n="section2Title">Data processed and permissions used</h3>
                 </div>
                 <div class="section-body">
-                    <p>To perform its role of filtering and intercepting unwanted calls, Silenceplus requires specific system permissions on your Android device:</p>
+                    <p data-i18n="section2Intro">To perform its role of filtering and intercepting unwanted calls, Silenceplus requires specific system permissions on your Android device:</p>
 
-                    <!-- Subsection a -->
                     <div class="subsection">
-                        <span class="highlight-badge">Call filtering</span>
-                        <h4>a. Incoming call processing (CallScreeningService)</h4>
+                        <span class="highlight-badge" data-i18n="subsection2aBadge">Call filtering</span>
+                        <h4 data-i18n="subsection2aTitle">a. Incoming call processing (CallScreeningService)</h4>
                         <ul>
-                            <li><strong>Use:</strong> When an incoming call is received, the Android system temporarily provides the caller number to Silenceplus’ local service.</li>
-                            <li><strong>Exclusive local processing:</strong> The number is analyzed instantly in RAM on your device to determine whether it matches your blocked prefixes, custom rules, or ARCEP lists.</li>
-                            <li><strong>No remote storage:</strong> This number is never sent to a remote server, never sold, and never shared with third parties.</li>
+                            <li data-i18n="subsection2a1"><strong>Use:</strong> When an incoming call is received, the Android system temporarily provides the caller number to Silenceplus’ local service.</li>
+                            <li data-i18n="subsection2a2"><strong>Exclusive local processing:</strong> The number is analyzed instantly in RAM on your device to determine whether it matches your blocked prefixes, custom rules, and filters.</li>
+                            <li data-i18n="subsection2a3"><strong>No remote storage:</strong> This number is never sent to a remote server, never sold, and never shared with third parties.</li>
                         </ul>
                     </div>
 
-                    <!-- Subsection b -->
                     <div class="subsection">
-                        <span class="highlight-badge">Contact protection</span>
-                        <h4>b. Contact list</h4>
-                        <p>Silenceplus does not read, extract, or upload your address book. Your personal contacts remain strictly confidential and remain confined to your device. No contact information is collected or transmitted by the application.</p>
+                        <span class="highlight-badge" data-i18n="subsection2bBadge">Contact protection</span>
+                        <h4 data-i18n="subsection2bTitle">b. Contact list</h4>
+                        <p data-i18n="subsection2bText">Silenceplus does not read, extract, or upload your address book. Your personal contacts remain strictly confidential and remain confined to your device. No contact information is exchanged with third parties.</p>
                     </div>
 
-                    <!-- Subsection c -->
                     <div class="subsection">
-                        <span class="highlight-badge">Secure local storage</span>
-                        <h4>c. Custom prefixes and rules</h4>
-                        <p>The phone prefixes you choose to add or block are stored exclusively on your device (using local preferences or secure local storage managed by the Android operating system). They are not synchronized to a backend service and are not visible to third parties.</p>
+                        <span class="highlight-badge" data-i18n="subsection2cBadge">Secure local storage</span>
+                        <h4 data-i18n="subsection2cTitle">c. Custom prefixes and rules</h4>
+                        <p data-i18n="subsection2cText">The phone prefixes you choose to add or block are stored exclusively on your device, in local preferences or secure storage managed by the Android operating system.</p>
                     </div>
                 </div>
             </article>
 
-            <!-- Section 3 -->
             <article class="policy-section">
                 <div class="section-header">
                     <div class="section-num">3</div>
-                    <h3>In-app purchases and financial data</h3>
+                    <h3 data-i18n="section3Title">In-app purchases and financial data</h3>
                 </div>
                 <div class="section-body">
-                    <p>If you choose to activate the paid version (Pass Tranquillity Pro), the financial transaction is handled directly and securely by:</p>
+                    <p data-i18n="section3Intro">If you choose to activate the paid version (Pass Tranquillity Pro), the financial transaction is handled directly and securely by:</p>
                     <div class="subsection">
                         <ul>
                             <li><strong>Google Play Billing</strong> (Google LLC)</li>
                             <li><strong>RevenueCat Inc.</strong> (technical provider for access management and purchase receipts)</li>
                         </ul>
                     </div>
-                    <p style="margin-top: 14px;">Silenceplus does not access your bank details, credit card number, or personal billing information. Only a purchase identifier is exchanged for access validation and subscription management. The app itself does not store your payment data.</p>
+                    <p style="margin-top: 14px;" data-i18n="section3Text">Silenceplus does not access your bank details, credit card number, or personal billing information. Only a purchase identifier is exchanged for access management.</p>
                 </div>
             </article>
 
-            <!-- Section 4 -->
             <article class="policy-section">
                 <div class="section-header">
                     <div class="section-num">4</div>
-                    <h3>Cookies and advertising trackers</h3>
+                    <h3 data-i18n="section4Title">Cookies and advertising trackers</h3>
                 </div>
                 <div class="section-body">
-                    <p>Silenceplus contains no advertising tracker, no marketing profiling tool, and does not integrate any third-party ad network.</p>
-                    <p>No browsing data is collected for targeting or personalization purposes.</p>
+                    <p data-i18n="section4Text1">Silenceplus contains no advertising tracker, no marketing profiling tool, and does not integrate any third-party ad network.</p>
+                    <p data-i18n="section4Text2">No browsing data is collected for targeting or personalization purposes.</p>
                 </div>
             </article>
 
-            <!-- Section 5 -->
             <article class="policy-section">
                 <div class="section-header">
                     <div class="section-num">5</div>
-                    <h3>Sharing and transfer of data to third parties</h3>
+                    <h3 data-i18n="section5Title">Sharing and transfer of data to third parties</h3>
                 </div>
                 <div class="section-body">
-                    <p>We do not sell, exchange, rent, or transfer any personal data to third-party companies.</p>
+                    <p data-i18n="section5Text">We do not sell, exchange, rent, or transfer any personal data to third-party companies.</p>
                 </div>
             </article>
 
-            <!-- Section 6 -->
             <article class="policy-section">
                 <div class="section-header">
                     <div class="section-num">6</div>
-                    <h3>Your rights (GDPR compliance)</h3>
+                    <h3 data-i18n="section6Title">Your rights (GDPR compliance)</h3>
                 </div>
                 <div class="section-body">
-                    <p>In accordance with the <strong>General Data Protection Regulation (GDPR)</strong>, you retain full control over your data:</p>
-                    <p>Since no personal data is collected or stored on our servers, simply uninstalling the application immediately removes all related data from the device. There is no remote profile, account, or dashboard that can be managed externally.</p>
+                    <p data-i18n="section6Text1">In accordance with the <strong>General Data Protection Regulation (GDPR)</strong>, you retain full control over your data:</p>
+                    <p data-i18n="section6Text2">Since no personal data is collected or stored on our servers, simply uninstalling the application immediately removes all related data from the device. There is no remote profile to delete.</p>
                 </div>
             </article>
 
-            <!-- Section 7 -->
             <article class="policy-section">
                 <div class="section-header">
                     <div class="section-num">7</div>
-                    <h3>Changes to this privacy policy</h3>
+                    <h3 data-i18n="section7Title">Changes to this privacy policy</h3>
                 </div>
                 <div class="section-body">
-                    <p>We reserve the right to update this policy in the event of legal or technical changes. Any modification will be reflected in the “Last updated” date shown at the top of this page.</p>
+                    <p data-i18n="section7Text">We reserve the right to update this policy in the event of legal or technical changes. Any modification will be reflected in the “Last updated” date shown at the top of this page.</p>
                 </div>
             </article>
 
-            <!-- Section 8 -->
             <article class="policy-section">
                 <div class="section-header">
                     <div class="section-num">8</div>
-                    <h3>Contact</h3>
+                    <h3 data-i18n="section8Title">Contact</h3>
                 </div>
                 <div class="section-body">
-                    <p>If you have any questions or requests regarding the privacy of the Silenceplus application, you can contact us directly:</p>
+                    <p data-i18n="section8Text">If you have any questions or requests regarding the privacy of the Silenceplus application, you can contact us directly:</p>
 
                     <div class="contact-box">
                         <div class="contact-details">
                             <h4>Dev3D Tech</h4>
-                            <p>Practical apps for real-world needs.</p>
+                            <p data-i18n="footerTagline">Practical apps for real-world needs.</p>
                         </div>
                         <a href="mailto:dev3d@outlook.fr" class="email-link">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -630,7 +601,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-brand">
@@ -639,7 +609,7 @@
                 </svg>
                 Silenceplus — Dev3D Tech
             </div>
-            <p class="footer-tagline">Practical apps for real-world needs.</p>
+            <p class="footer-tagline" data-i18n="footerTaglineSecondary">Practical apps for real-world needs.</p>
             <div class="footer-links">
                 <a href="https://www.dev3dtech.app" target="_blank" rel="noopener noreferrer">www.dev3dtech.app</a>
                 <span>•</span>
@@ -647,5 +617,134 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const translations = {
+            en: {
+                brandTagline: 'ARCEP call blocker & private number protection',
+                contact: 'Contact',
+                privacyPill: '100% Local Execution • No Data Collection',
+                privacyTitle: 'Privacy Policy',
+                lastUpdated: 'Last updated: <strong>October 7, 2026</strong>',
+                introText: 'This privacy policy describes how the mobile application <strong>Silenceplus</strong> processes data relating to its users. The application is designed around the principle of <strong>100% local execution</strong>. It does not require an account and does not transmit personal data to remote servers.',
+                section1Title: 'General philosophy: Privacy by design',
+                section1Text1: 'Silenceplus is designed on a principle of <strong>100% local execution</strong>. The application does not require user account creation and operates without transmitting personal data to external services.',
+                section1Text2: 'By default, the app does not collect names, phone numbers, browsing data, device identifiers, locations, or contact lists. This approach minimizes the data footprint and reduces risks for users.',
+                section2Title: 'Data processed and permissions used',
+                section2Intro: 'To perform its role of filtering and intercepting unwanted calls, Silenceplus requires specific system permissions on your Android device:',
+                subsection2aBadge: 'Call filtering',
+                subsection2aTitle: 'a. Incoming call processing (CallScreeningService)',
+                subsection2a1: '<strong>Use:</strong> When an incoming call is received, the Android system temporarily provides the caller number to Silenceplus’ local service.',
+                subsection2a2: '<strong>Exclusive local processing:</strong> The number is analyzed instantly in RAM on your device to determine whether it matches your blocked prefixes, custom rules, and filters.',
+                subsection2a3: '<strong>No remote storage:</strong> This number is never sent to a remote server, never sold, and never shared with third parties.',
+                subsection2bBadge: 'Contact protection',
+                subsection2bTitle: 'b. Contact list',
+                subsection2bText: 'Silenceplus does not read, extract, or upload your address book. Your personal contacts remain strictly confidential and remain confined to your device. No contact information is exchanged with third parties.',
+                subsection2cBadge: 'Secure local storage',
+                subsection2cTitle: 'c. Custom prefixes and rules',
+                subsection2cText: 'The phone prefixes you choose to add or block are stored exclusively on your device, in local preferences or secure storage managed by the Android operating system.',
+                section3Title: 'In-app purchases and financial data',
+                section3Intro: 'If you choose to activate the paid version (Pass Tranquillity Pro), the financial transaction is handled directly and securely by:',
+                section3Text: 'Silenceplus does not access your bank details, credit card number, or personal billing information. Only a purchase identifier is exchanged for access management.',
+                section4Title: 'Cookies and advertising trackers',
+                section4Text1: 'Silenceplus contains no advertising tracker, no marketing profiling tool, and does not integrate any third-party ad network.',
+                section4Text2: 'No browsing data is collected for targeting or personalization purposes.',
+                section5Title: 'Sharing and transfer of data to third parties',
+                section5Text: 'We do not sell, exchange, rent, or transfer any personal data to third-party companies.',
+                section6Title: 'Your rights (GDPR compliance)',
+                section6Text1: 'In accordance with the <strong>General Data Protection Regulation (GDPR)</strong>, you retain full control over your data:',
+                section6Text2: 'Since no personal data is collected or stored on our servers, simply uninstalling the application immediately removes all related data from the device. There is no remote profile to delete.',
+                section7Title: 'Changes to this privacy policy',
+                section7Text: 'We reserve the right to update this policy in the event of legal or technical changes. Any modification will be reflected in the “Last updated” date shown at the top of this page.',
+                section8Title: 'Contact',
+                section8Text: 'If you have any questions or requests regarding the privacy of the Silenceplus application, you can contact us directly:',
+                footerTagline: 'Practical apps for real-world needs.',
+                footerTaglineSecondary: 'Practical apps for real-world needs.',
+                toggle: 'FR / EN'
+            },
+            fr: {
+                brandTagline: 'Bloqueur d’appels ARCEP & protection des numéros privés',
+                contact: 'Contact',
+                privacyPill: '100% Exécution Locale • Aucune Collecte de Données',
+                privacyTitle: 'Politique de Confidentialité',
+                lastUpdated: 'Dernière mise à jour : <strong>7 octobre 2026</strong>',
+                introText: 'La présente politique de confidentialité décrit la manière dont l’application mobile <strong>Silenceplus</strong> traite les données relatives à ses utilisateurs. L’application est conçue selon le principe d’<strong>exécution locale à 100 %</strong>. Elle ne nécessite pas de compte et ne transmet aucune donnée personnelle vers des serveurs distants.',
+                section1Title: 'Philosophie générale : confidentialité dès la conception',
+                section1Text1: 'Silenceplus est conçue selon un principe d’<strong>exécution 100 % locale</strong>. L’application n’exige la création d’aucun compte utilisateur et fonctionne sans transmettre des données personnelles à des services externes.',
+                section1Text2: 'Par défaut, l’application ne collecte ni noms, ni numéros de téléphone, ni données de navigation, ni identifiants d’appareil, ni localisation, ni listes de contacts. Cette approche réduit considérablement l’empreinte numérique et les risques pour les utilisateurs.',
+                section2Title: 'Données traitées et autorisations utilisées',
+                section2Intro: 'Pour assurer son rôle de filtrage et d’interception des appels indésirables, Silenceplus nécessite des autorisations système spécifiques sur votre appareil Android :',
+                subsection2aBadge: 'Filtrage des appels',
+                subsection2aTitle: 'a. Traitement des appels entrants (CallScreeningService)',
+                subsection2a1: '<strong>Utilisation :</strong> Lorsqu’un appel entrant est reçu, le système Android transmet temporairement le numéro appelant au service local de Silenceplus.',
+                subsection2a2: '<strong>Traitement local exclusif :</strong> Le numéro est analysé instantanément en mémoire vive sur votre appareil pour vérifier s’il correspond à vos préfixes bloqués, règles personnalisées et filtres.',
+                subsection2a3: '<strong>Aucun stockage distant :</strong> Ce numéro n’est jamais envoyé vers un serveur distant, n’est jamais vendu et n’est jamais partagé avec des tiers.',
+                subsection2bBadge: 'Protection des contacts',
+                subsection2bTitle: 'b. Liste des contacts',
+                subsection2bText: 'Silenceplus ne lit pas, n’extrait pas et ne téléverse pas votre carnet d’adresses. Vos contacts personnels restent strictement confidentiels et confinés à votre appareil. Aucune information de contact n’est échangée avec des tiers.',
+                subsection2cBadge: 'Stockage local sécurisé',
+                subsection2cTitle: 'c. Préfixes et règles personnalisées',
+                subsection2cText: 'Les préfixes téléphoniques que vous choisissez d’ajouter ou de bloquer sont stockés exclusivement sur votre appareil, dans les préférences locales ou le stockage sécurisé du système Android.',
+                section3Title: 'Achats intégrés et données financières',
+                section3Intro: 'Si vous choisissez d’activer la version payante (Pass Tranquillité Pro), la transaction financière est gérée directement et de façon sécurisée par :',
+                section3Text: 'Silenceplus n’accède ni à vos coordonnées bancaires, ni au numéro de carte, ni à des informations de facturation personnelles. Seul un identifiant d’achat est échangé pour la gestion de l’accès.',
+                section4Title: 'Cookies et traceurs publicitaires',
+                section4Text1: 'Silenceplus ne contient aucun traceur publicitaire, aucun outil de profilage marketing et n’intègre aucun réseau publicitaire tiers.',
+                section4Text2: 'Aucune donnée de navigation n’est collectée à des fins de ciblage ou de personnalisation.',
+                section5Title: 'Partage et transfert de données à des tiers',
+                section5Text: 'Nous ne vendons, n’échangeons, ne louons et ne transférons aucune donnée personnelle à des entreprises tierces.',
+                section6Title: 'Vos droits (conformité RGPD)',
+                section6Text1: 'Conformément au <strong>Règlement Général sur la Protection des Données (RGPD)</strong>, vous gardez un contrôle total sur vos données :',
+                section6Text2: 'Comme aucune donnée personnelle n’est collectée ni stockée sur nos serveurs, la simple désinstallation de l’application supprime immédiatement toutes les données associées de l’appareil. Il n’existe aucun profil distant à supprimer.',
+                section7Title: 'Modifications de cette politique de confidentialité',
+                section7Text: 'Nous nous réservons le droit de mettre à jour cette politique en cas d’évolution légale ou technique. Toute modification apparaîtra dans la date de « dernière mise à jour » affichée en haut de cette page.',
+                section8Title: 'Contact',
+                section8Text: 'Si vous avez des questions ou des demandes concernant la confidentialité de l’application Silenceplus, vous pouvez nous contacter directement :',
+                footerTagline: 'Des applications concrètes pour des besoins réels.',
+                footerTaglineSecondary: 'Des applications concrètes pour des besoins réels.',
+                toggle: 'EN / FR'
+            }
+        };
+
+        const app = {
+            currentLang: 'en',
+            elements: document.querySelectorAll('[data-i18n]')
+        };
+
+        function applyLanguage(lang) {
+            const selected = translations[lang] || translations.en;
+            app.currentLang = lang;
+            document.documentElement.lang = lang;
+
+            app.elements.forEach((el) => {
+                const key = el.dataset.i18n;
+                if (selected[key]) {
+                    el.innerHTML = selected[key];
+                }
+            });
+
+            const toggle = document.getElementById('langToggle');
+            if (toggle) {
+                toggle.textContent = selected.toggle;
+                toggle.setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
+            }
+
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+                metaDescription.setAttribute(
+                    'content',
+                    lang === 'fr'
+                        ? 'Politique de confidentialité de l’application Silenceplus - Bloqueur d’appels et protection anti-démarchage en France. Confidentialité 100 % locale.'
+                        : 'Privacy policy for the Silenceplus app - Call blocker and spam call protection in France. 100% local privacy.'
+                );
+            }
+        }
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            applyLanguage(app.currentLang === 'en' ? 'fr' : 'en');
+        });
+
+        applyLanguage('en');
+    </script>
 </body>
 </html>
